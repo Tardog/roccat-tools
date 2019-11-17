@@ -30,7 +30,7 @@ SET_TARGET_PROPERTIES(libroccatkoneaimo
     VERSION ${V_MAJOR}.${V_MINOR}.${V_PATCH}
     SOVERSION ${V_MAJOR}
     OUTPUT_NAME roccatkoneaimo
-    COMPILE_FLAGS "-DG_LOG_DOMAIN=\\\"KoneXTD\\\""
+    COMPILE_FLAGS "-DG_LOG_DOMAIN=\\\"KoneAIMO\\\""
 )
 
 INSTALL(TARGETS libroccatkoneaimo DESTINATION ${LIBDIR})

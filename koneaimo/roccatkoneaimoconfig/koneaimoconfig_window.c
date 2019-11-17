@@ -216,7 +216,7 @@ static gboolean delete_event_cb(GtkWidget *window, GdkEvent *event, gpointer use
 static void add_file_filter_to_file_chooser(GtkFileChooser *chooser) {
 	GtkFileFilter *filter;
 	filter = gtk_file_filter_new();
-	gtk_file_filter_set_name(filter, _("KoneXTD Windows profiles"));
+	gtk_file_filter_set_name(filter, _("Kone AIMO Windows profiles"));
 	gtk_file_filter_add_pattern(filter, "*." ROCCAT_MOUSE_PROFILE_EXTENSION);
 	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(chooser), filter);
 

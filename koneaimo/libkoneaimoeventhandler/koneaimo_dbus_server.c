@@ -36,9 +36,9 @@ static gboolean koneaimo_dbus_server_cb_configuration_changed_outside(KoneaimoDB
 
 #include "koneaimo_dbus_server_glue.h"
 
-#define KONEXTD_DBUS_SERVER_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST((klass), TYPE_KONEXTD_DBUS_SERVER, KoneaimoDBusServerClass))
-#define IS_KONEXTD_DBUS_SERVER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE((klass), TYPE_KONEXTD_DBUS_SERVER))
-#define KONEXTD_DBUS_SERVER_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS((obj), TYPE_KONEXTD_DBUS_SERVER, KoneaimoDBusServerClass))
+#define KONEAIMO_DBUS_SERVER_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST((klass), TYPE_KONEAIMO_DBUS_SERVER, KoneaimoDBusServerClass))
+#define IS_KONEAIMO_DBUS_SERVER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE((klass), TYPE_KONEAIMO_DBUS_SERVER))
+#define KONEAIMO_DBUS_SERVER_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS((obj), TYPE_KONEAIMO_DBUS_SERVER, KoneaimoDBusServerClass))
 
 typedef struct _KoneaimoDBusServerClass KoneaimoDBusServerClass;
 
@@ -76,69 +76,69 @@ static void koneaimo_dbus_server_class_init(KoneaimoDBusServerClass *klass) {
 	object_class = G_OBJECT_CLASS(klass);
 	object_class->finalize = koneaimo_dbus_server_finalize;
 
-	dbus_g_object_type_install_info(TYPE_KONEXTD_DBUS_SERVER, &dbus_glib_server_object_info);
+	dbus_g_object_type_install_info(TYPE_KONEAIMO_DBUS_SERVER, &dbus_glib_server_object_info);
 
-	signals[TALK_EASYSHIFT] = g_signal_new("talk-easyshift", TYPE_KONEXTD_DBUS_SERVER,
+	signals[TALK_EASYSHIFT] = g_signal_new("talk-easyshift", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__UCHAR, G_TYPE_NONE,
 			1, G_TYPE_UCHAR);
 
-	signals[TALK_EASYSHIFT_LOCK] = g_signal_new("talk-easyshift-lock", TYPE_KONEXTD_DBUS_SERVER,
+	signals[TALK_EASYSHIFT_LOCK] = g_signal_new("talk-easyshift-lock", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__UCHAR, G_TYPE_NONE,
 			1, G_TYPE_UCHAR);
 
-	signals[TALK_EASYAIM] = g_signal_new("talk-easyaim", TYPE_KONEXTD_DBUS_SERVER,
+	signals[TALK_EASYAIM] = g_signal_new("talk-easyaim", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__UCHAR, G_TYPE_NONE,
 			1, G_TYPE_UCHAR);
 
-	signals[TALKFX_SET_LED_RGB] = g_signal_new("talkfx-set-led-rgb", TYPE_KONEXTD_DBUS_SERVER,
+	signals[TALKFX_SET_LED_RGB] = g_signal_new("talkfx-set-led-rgb", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_roccat_marshal_VOID__UINT_UINT_UINT, G_TYPE_NONE,
 			3, G_TYPE_UINT, G_TYPE_UINT, G_TYPE_UINT);
 
-	signals[TALKFX_RESTORE_LED_RGB] = g_signal_new("talkfx-restore-led-rgb", TYPE_KONEXTD_DBUS_SERVER,
+	signals[TALKFX_RESTORE_LED_RGB] = g_signal_new("talkfx-restore-led-rgb", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__VOID, G_TYPE_NONE,
 			0);
 
-	signals[GFX_SET_LED_RGB] = g_signal_new("gfx-set-led-rgb", TYPE_KONEXTD_DBUS_SERVER,
+	signals[GFX_SET_LED_RGB] = g_signal_new("gfx-set-led-rgb", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_roccat_marshal_VOID__UINT_UINT, G_TYPE_NONE,
 			2, G_TYPE_UINT, G_TYPE_UINT);
 
-	signals[GFX_GET_LED_RGB] = g_signal_new("gfx-get-led-rgb", TYPE_KONEXTD_DBUS_SERVER,
+	signals[GFX_GET_LED_RGB] = g_signal_new("gfx-get-led-rgb", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_roccat_marshal_VOID__UINT_POINTER, G_TYPE_NONE,
 			2, G_TYPE_UINT, G_TYPE_POINTER);
 
-	signals[GFX_UPDATE] = g_signal_new("gfx-update", TYPE_KONEXTD_DBUS_SERVER,
+	signals[GFX_UPDATE] = g_signal_new("gfx-update", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__VOID, G_TYPE_NONE,
 			0);
 
-	signals[OPEN_GUI] = g_signal_new("open-gui", TYPE_KONEXTD_DBUS_SERVER,
+	signals[OPEN_GUI] = g_signal_new("open-gui", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__VOID, G_TYPE_NONE,
 			0);
 
-	signals[PROFILE_CHANGED_OUTSIDE] = g_signal_new("profile-changed-outside", TYPE_KONEXTD_DBUS_SERVER,
+	signals[PROFILE_CHANGED_OUTSIDE] = g_signal_new("profile-changed-outside", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__UCHAR, G_TYPE_NONE,
 			1, G_TYPE_UCHAR);
 
-	signals[PROFILE_DATA_CHANGED_OUTSIDE] = g_signal_new("profile-data-changed-outside", TYPE_KONEXTD_DBUS_SERVER,
+	signals[PROFILE_DATA_CHANGED_OUTSIDE] = g_signal_new("profile-data-changed-outside", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__UCHAR, G_TYPE_NONE,
 			1, G_TYPE_UCHAR);
 
-	signals[CONFIGURATION_CHANGED_OUTSIDE] = g_signal_new("configuration-changed-outside", TYPE_KONEXTD_DBUS_SERVER,
+	signals[CONFIGURATION_CHANGED_OUTSIDE] = g_signal_new("configuration-changed-outside", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__VOID, G_TYPE_NONE,
 			0);
 
-	signals[PROFILE_CHANGED] = g_signal_new("profile-changed", TYPE_KONEXTD_DBUS_SERVER,
+	signals[PROFILE_CHANGED] = g_signal_new("profile-changed", TYPE_KONEAIMO_DBUS_SERVER,
 			G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
 			0, NULL, NULL, g_cclosure_marshal_VOID__UCHAR, G_TYPE_NONE,
 			1, G_TYPE_UCHAR);
@@ -147,7 +147,7 @@ static void koneaimo_dbus_server_class_init(KoneaimoDBusServerClass *klass) {
 static void koneaimo_dbus_server_init(KoneaimoDBusServer *object) {}
 
 KoneaimoDBusServer *koneaimo_dbus_server_new(void) {
-	return g_object_new(TYPE_KONEXTD_DBUS_SERVER, NULL);
+	return g_object_new(TYPE_KONEAIMO_DBUS_SERVER, NULL);
 }
 
 static gboolean koneaimo_dbus_server_cb_talk_easyshift(KoneaimoDBusServer *object, guchar state, GError **error) {
@@ -225,7 +225,7 @@ gboolean koneaimo_dbus_server_connect(KoneaimoDBusServer *dbus_server) {
 		return FALSE;
 	}
 
-	dbus_g_connection_register_g_object(connection, KONEXTD_DBUS_SERVER_PATH, (GObject *)dbus_server);
+	dbus_g_connection_register_g_object(connection, KONEAIMO_DBUS_SERVER_PATH, (GObject *)dbus_server);
 	dbus_g_connection_unref(connection);
 
 	return TRUE;

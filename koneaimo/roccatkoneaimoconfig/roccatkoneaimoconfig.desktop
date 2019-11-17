@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=KoneAIMO config
-Name[de]=KoneAIMO Konfiguration
-Comment=Modify Roccat KoneAIMO device settings
-Comment[de]=Roccat KoneAIMO Einstellungen ändern
+Name=Kone AIMO config
+Name[de]=Kone AIMO Konfiguration
+Comment=Modify Roccat Kone AIMO device settings
+Comment[de]=Roccat Kone AIMO Einstellungen ändern
 Type=Application
 Exec=roccatkoneaimoconfig
 Icon=roccat

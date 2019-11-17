@@ -63,7 +63,7 @@ KoneplusProfileSettings *koneaimo_rmp_to_profile_settings(KoneplusRmp *rmp) {
 	for (i = 0; i < KONEPLUS_PROFILE_SETTING_LIGHTS_NUM; ++i) {
 		rmp_light_info = koneplus_rmp_get_rmp_light_info(rmp, i);
 		roccat_set_bit8(&settings->lights_enabled, i, rmp_light_info->state == KONEPLUS_RMP_LIGHT_INFO_STATE_ON);
-		if (koneaimo_rmp_get_light_chose_type(rmp) == KONEXTD_RMP_LIGHT_CHOSE_TYPE_TABLE) {
+		if (koneaimo_rmp_get_light_chose_type(rmp) == KONEAIMO_RMP_LIGHT_CHOSE_TYPE_TABLE) {
 			koneplus_rmp_light_info_to_light_info(rmp_light_info, &settings->lights[i], FALSE);
 		} else {
 			g_free(rmp_light_info);
@@ -99,9 +99,9 @@ void koneaimo_rmp_update_with_profile_settings(KoneplusRmp *rmp, KoneplusProfile
 
 	/* Using first light to determine if custom or table colors should be used */
 	if (profile_settings->lights[0].index == KONEPLUS_LIGHT_INFO_INDEX_CUSTOM)
-		koneaimo_rmp_set_light_chose_type(rmp, KONEXTD_RMP_LIGHT_CHOSE_TYPE_CUSTOM);
+		koneaimo_rmp_set_light_chose_type(rmp, KONEAIMO_RMP_LIGHT_CHOSE_TYPE_CUSTOM);
 	else
-		koneaimo_rmp_set_light_chose_type(rmp, KONEXTD_RMP_LIGHT_CHOSE_TYPE_TABLE);
+		koneaimo_rmp_set_light_chose_type(rmp, KONEAIMO_RMP_LIGHT_CHOSE_TYPE_TABLE);
 
 	for (i = 0; i < KONEPLUS_PROFILE_SETTING_LIGHTS_NUM; ++i) {
 		if (profile_settings->lights[0].index == KONEPLUS_LIGHT_INFO_INDEX_CUSTOM) {

@@ -57,7 +57,7 @@ Group: Applications/System
 
 %package koneaimo
 Requires: roccat
-Requires: roccat-konextd
+Requires: roccat-koneplus
 Summary: Roccat KoneAIMO userlandtools
 Group: Applications/System
 

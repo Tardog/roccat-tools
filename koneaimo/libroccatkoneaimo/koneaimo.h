@@ -91,7 +91,7 @@ guint koneaimo_bin_cpi_to_rmp(guint bin_value);
 #define KONEAIMO_DBUS_SERVER_PATH "/org/roccat/Koneaimo"
 #define KONEAIMO_DBUS_SERVER_INTERFACE "org.roccat.Koneaimo"
 
-#define KONEAIMO_DEVICE_NAME "Kone XTD"
+#define KONEAIMO_DEVICE_NAME "Kone AIMO"
 
 G_END_DECLS
 

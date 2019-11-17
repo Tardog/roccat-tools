@@ -40,8 +40,8 @@ SET(ALL_DEVICES
   arvo
   isku iskufx
   kiro
-  koneaimo
   koneplus
+  koneaimo
   konepure konepuremilitary konepureoptical
   konextd konextdoptical
   kovaplus kova2016
@@ -71,9 +71,9 @@ ENDIF()
 MESSAGE(STATUS "Installing eventhandler plugins in ${EVENTHANDLER_PLUGIN_DIR}")
 
 INCLUDE(TEST_ATTRIBUTE_PACK)
-IF(NOT HAVE_WORKING_ATTRIBUTE_PACK)
-  MESSAGE(FATAL_ERROR "Compiler does not support attribute pack")
-ENDIF()
+# IF(NOT HAVE_WORKING_ATTRIBUTE_PACK)
+#   MESSAGE(FATAL_ERROR "Compiler does not support attribute pack")
+# ENDIF()
 
 FIND_PACKAGE(GTHREAD2)
 FIND_PACKAGE(GTK REQUIRED)
