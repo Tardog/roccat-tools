@@ -55,6 +55,12 @@ Requires: roccat
 Summary: Roccat Kone userlandtools
 Group: Applications/System
 
+%package koneaimo
+Requires: roccat
+Requires: roccat-konextd
+Summary: Roccat KoneAIMO userlandtools
+Group: Applications/System
+
 %package koneplus
 Requires: roccat
 Summary: Roccat Kone[+] userlandtools

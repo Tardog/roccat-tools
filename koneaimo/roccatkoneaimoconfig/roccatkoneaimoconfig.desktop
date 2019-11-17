@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=KoneAIMO config
+Name[de]=KoneAIMO Konfiguration
+Comment=Modify Roccat KoneAIMO device settings
+Comment[de]=Roccat KoneAIMO Einstellungen ändern
+Type=Application
+Exec=roccatkoneaimoconfig
+Icon=roccat
+Terminal=false
+Categories=Settings;HardwareSettings;GTK;
